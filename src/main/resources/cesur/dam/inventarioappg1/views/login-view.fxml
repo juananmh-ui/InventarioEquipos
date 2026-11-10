@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.SVGPath?>
+
+<VBox alignment="CENTER" spacing="26" prefWidth="328" prefHeight="382"
+      style="-fx-background-color: #f9fafb; -fx-font-family: 'Segoe UI'; -fx-font-size: 14px;"
+      xmlns="http://javafx.com/javafx/21.0.6" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="cesur.dam.inventarioappg1.controllers.LoginController">
+    <StackPane>
+        <Circle radius="65" fill="#bbc1cb" />
+        <SVGPath fill="#f9fafb"
+                 content="M 32 0 A 18 18 0 1 1 32 36 A 18 18 0 0 1 32 0 Z M 32 43 C 13 43 0 55 0 71 L 64 71 C 64 55 51 43 32 43 Z" />
+    </StackPane>
+    <Button text="Iniciar sesión" onAction="#login" prefWidth="218" prefHeight="45"
+            defaultButton="true"
+            style="-fx-background-color: #1477db; -fx-background-radius: 6px; -fx-text-fill: white; -fx-cursor: hand;" />
+</VBox>
