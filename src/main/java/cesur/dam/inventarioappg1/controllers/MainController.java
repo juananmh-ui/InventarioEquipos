@@ -13,9 +13,20 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 import java.net.URL;
+import java.util.Locale;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
+    private static final Map<String, String> CATEGORIAS_ANTERIORES = Map.of(
+            "computer", "PC Sobremesa",
+            "gamepad", "Mando",
+            "keyboard", "Teclado",
+            "laptop", "Portátil",
+            "monitor", "Monitor",
+            "printer", "Impresora",
+            "videogame", "Videojuego"
+    );
 
     @FXML
     private TableColumn<Equipo,String> cAvailability;
@@ -43,7 +54,7 @@ public class MainController implements Initializable {
                 return new SimpleStringProperty(String.valueOf(row.getValue().getNombre()));
             }
         });
-        cCategory.setCellValueFactory(row -> new SimpleStringProperty(row.getValue().getCategoriaVisible()));
+        cCategory.setCellValueFactory(row -> new SimpleStringProperty(categoriaVisible(row.getValue().getCategoria())));
         cAvailability.setCellValueFactory( (row)->{
             var availability = row.getValue().getDisponible();
             String output = availability? "disponible":"no disponible";
@@ -60,6 +71,19 @@ public class MainController implements Initializable {
             System.err.println(e.getMessage());
             alerta.showAndWait();
         }
+    }
+
+    private static String categoriaVisible(String categoria) {
+        if (categoria == null) {
+            return "Sin categoría";
+        }
+
+        String valor = categoria.strip();
+        return CreateController.CATEGORIAS.stream()
+                .filter(nombreCategoria -> nombreCategoria.equalsIgnoreCase(valor))
+                .findFirst()
+                .orElseGet(() -> CATEGORIAS_ANTERIORES.getOrDefault(
+                        valor.toLowerCase(Locale.ROOT), "Sin categoría"));
     }
 
     @FXML

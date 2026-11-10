@@ -13,7 +13,14 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 
+import java.util.List;
+
 public class CreateController {
+    static final List<String> CATEGORIAS = List.of(
+            "Impresora", "NAS", "PC Sobremesa", "Portátil", "Proyector",
+            "Router", "Switch", "Tablet", "Videojuego", "Webcam"
+    );
+
     private static final int MAX_NOMBRE = 60;
 
     @FXML private TextField txtName;
@@ -27,7 +34,7 @@ public class CreateController {
         spinnerId.setEditable(false);
         spinnerId.setDisable(true);
         spinnerId.setTooltip(new Tooltip("MySQL asigna el ID al guardar."));
-        choiceCategory.getItems().setAll(Equipo.CATEGORIAS);
+        choiceCategory.getItems().setAll(CATEGORIAS);
     }
 
     @FXML
