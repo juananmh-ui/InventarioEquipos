@@ -71,6 +71,6 @@ public class MainController implements Initializable {
 
     @FXML
     public void addNew(ActionEvent actionEvent) {
-        SceneNavigator.navigateTo("details-view.fxml", "Ficha de equipo");
+        SceneNavigator.navigateTo("create-view.fxml", "Ficha de equipo");
     }
 }

@@ -13,7 +13,7 @@
 <VBox spacing="10" prefWidth="350" prefHeight="355"
       style="-fx-background-color: #f9fafb; -fx-font-family: 'Segoe UI'; -fx-font-size: 14px;"
       xmlns="http://javafx.com/javafx/21.0.6" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="cesur.dam.inventarioappg1.controllers.DetailsController">
+      fx:controller="cesur.dam.inventarioappg1.controllers.CreateController">
     <padding><Insets top="17" right="19" bottom="16" left="19" /></padding>
     <Label text="Ficha de equipo"
            style="-fx-text-fill: #16212e; -fx-font-weight: bold; -fx-font-size: 20px;" />

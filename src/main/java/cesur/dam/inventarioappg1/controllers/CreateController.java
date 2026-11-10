@@ -13,7 +13,9 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 
-public class DetailsController {
+public class CreateController {
+    private static final int MAX_NOMBRE = 60;
+
     @FXML private TextField txtName;
     @FXML private ChoiceBox<String> choiceCategory;
     @FXML private CheckBox chkAvailable;
@@ -26,15 +28,21 @@ public class DetailsController {
         spinnerId.setDisable(true);
         spinnerId.setTooltip(new Tooltip("MySQL asigna el ID al guardar."));
         choiceCategory.getItems().setAll("Keyboard", "Laptop", "Gamepad", "Monitor", "Computer", "Printer");
-        choiceCategory.getSelectionModel().selectFirst();
     }
 
     @FXML
     public void save() {
         String nombre = txtName.getText().strip();
+        if (nombre.isEmpty() || nombre.codePointCount(0, nombre.length()) > MAX_NOMBRE) {
+            avisar(Alert.AlertType.WARNING, "Introduce un nombre de entre 1 y 60 caracteres.");
+            txtName.requestFocus();
+            return;
+        }
+
         String categoria = choiceCategory.getValue();
-        if (nombre.isEmpty() || categoria == null) {
-            avisar(Alert.AlertType.WARNING, "Introduce el nombre y selecciona la categoría.");
+        if (categoria == null) {
+            avisar(Alert.AlertType.WARNING, "Selecciona la categoría del equipo.");
+            choiceCategory.requestFocus();
             return;
         }
 
