@@ -43,9 +43,7 @@ public class MainController implements Initializable {
                 return new SimpleStringProperty(String.valueOf(row.getValue().getNombre()));
             }
         });
-        cCategory.setCellValueFactory( (row)->{
-            return new SimpleStringProperty(String.valueOf(row.getValue().getCategoria()).toUpperCase());
-        });
+        cCategory.setCellValueFactory(row -> new SimpleStringProperty(row.getValue().getCategoriaVisible()));
         cAvailability.setCellValueFactory( (row)->{
             var availability = row.getValue().getDisponible();
             String output = availability? "disponible":"no disponible";

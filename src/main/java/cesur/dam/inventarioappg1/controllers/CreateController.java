@@ -27,7 +27,7 @@ public class CreateController {
         spinnerId.setEditable(false);
         spinnerId.setDisable(true);
         spinnerId.setTooltip(new Tooltip("MySQL asigna el ID al guardar."));
-        choiceCategory.getItems().setAll("Keyboard", "Laptop", "Gamepad", "Monitor", "Computer", "Printer");
+        choiceCategory.getItems().setAll(Equipo.CATEGORIAS);
     }
 
     @FXML
